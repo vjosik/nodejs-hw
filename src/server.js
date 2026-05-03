@@ -12,7 +12,13 @@ const setupServer = () => {
   app.use(cors());
   app.use(express.json());
 
-  app.use(pino());
+  app.use(
+    pino({
+      transport: {
+        target: 'pino-pretty',
+      },
+    }),
+  );
 
   app.get('/notes', (req, res) => {
     res.status(200).json({ message: 'Retrieved all notes' });

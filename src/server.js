@@ -6,6 +6,7 @@ import { logger } from './middleware/logger.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import notesRouter from './routes/notesRoutes.js';
+import { errors } from 'celebrate';
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -20,6 +21,8 @@ const setupServer = () => {
   app.use('/notes', notesRouter);
 
   app.use(notFoundHandler);
+
+  app.use(errors());
 
   app.use(errorHandler);
 

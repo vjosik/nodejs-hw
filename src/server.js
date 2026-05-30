@@ -9,6 +9,7 @@ import notesRouter from './routes/notesRoutes.js';
 import { errors } from 'celebrate';
 import authRouter from './routes/authRoutes.js';
 import cookieParser from 'cookie-parser';
+import userRouter from './routes/userRoutes.js';
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -23,6 +24,7 @@ const setupServer = () => {
 
   app.use(authRouter);
   app.use(notesRouter);
+  app.use(userRouter);
 
   app.use(notFoundHandler);
 

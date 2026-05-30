@@ -21,8 +21,8 @@ const setupServer = () => {
   app.use(cookieParser());
   app.use(logger);
 
-  app.use('/auth', authRouter);
-  app.use('/notes', notesRouter);
+  app.use(authRouter);
+  app.use(notesRouter);
 
   app.use(notFoundHandler);
 

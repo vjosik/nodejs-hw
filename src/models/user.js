@@ -14,7 +14,7 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
-      minLength: 8,
+      minlength: 8,
     },
   },
   { timestamps: true, versionKey: false },
@@ -32,5 +32,5 @@ userSchema.methods.toJSON = function () {
   return obj;
 };
 
-const User = model('Users', userSchema);
+const User = model('User', userSchema);
 export default User;

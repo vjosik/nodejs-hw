@@ -5,9 +5,9 @@ import { loginUser, logoutUser, refreshSession, registerUser } from '../controll
 
 const authRouter = Router();
 
-authRouter.post('/register', celebrate(registerUserSchema), registerUser);
-authRouter.post('/login', celebrate(loginUserSchema), loginUser);
-authRouter.post('/logout', logoutUser)
-authRouter.post('/refresh', refreshSession)
+authRouter.post('/auth/register', celebrate(registerUserSchema), registerUser);
+authRouter.post('/auth/login', celebrate(loginUserSchema), loginUser);
+authRouter.post('/auth/logout', logoutUser);
+authRouter.post('/auth/refresh', refreshSession);
 
 export default authRouter;

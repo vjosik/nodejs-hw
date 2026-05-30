@@ -12,16 +12,16 @@ import authenticate from '../middleware/authenticate.js';
 
 const notesRouter = Router();
 
-notesRouter.use(authenticate)
+notesRouter.use('/notes', authenticate);
 
-notesRouter.get('/',celebrate(getAllNotesSchema), getAllNotes);
+notesRouter.get('/notes', celebrate(getAllNotesSchema), getAllNotes);
 
-notesRouter.get('/:noteId', celebrate(noteIdSchema), getNoteById);
+notesRouter.get('/notes/:noteId', celebrate(noteIdSchema), getNoteById);
 
-notesRouter.post('/',celebrate(createNoteSchema), createNote);
+notesRouter.post('/notes', celebrate(createNoteSchema), createNote);
 
-notesRouter.patch('/:noteId',celebrate(updateNoteSchema), updateNote)
+notesRouter.patch('/notes/:noteId', celebrate(updateNoteSchema), updateNote);
 
-notesRouter.delete('/:noteId',celebrate(noteIdSchema), deleteNote)
+notesRouter.delete('/notes/:noteId', celebrate(noteIdSchema), deleteNote);
 
 export default notesRouter;
